@@ -1,20 +1,10 @@
 pipeline {
-    agent any 
+    agent any
     stages {
-	stage('Run'){
-	    steps {
-		sh ' lolnpm start'
-		}
-	}
-    }
-    post {
-      
-        success {
-            echo 'Success'
+        stage('Example') {
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
         }
-        failure {
-            echo 'Error occured'
-        }
-        
     }
 }
